@@ -8,6 +8,8 @@ class ActorsController < ApplicationController
     # Use the information after the slash in the URL to look up the actor with the corresponding ID number
     # Store the actor in the @actor instance variable so the view can format it
 
-    # @actor = ???
+    @id = params[:id]
+
+    @actor = Actor.find_by({ :id => params[:id]})
   end
 end
