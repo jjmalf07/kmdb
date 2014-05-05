@@ -19,7 +19,7 @@
               <dd><%= movie.year %></dd>
 
               <dt>Director</dt>
-              <dd><%= movie.director_id %></dd>
+              <dd><%= movie.find_by({:director_id => params[:id]}) %></dd>
 
               <dt>Description</dt>
               <dd><%= movie.description %></dd>

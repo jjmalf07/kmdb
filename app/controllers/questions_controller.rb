@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
 
     # Your Ruby goes here.
 
-    # @year_of_oldest_movie = ???
+    @year_of_oldest_movie = Movie.order("year ASC").first.year
   end
 
   def question_3
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
     # Your Ruby goes here.
 
-    # @number_of_movies_directed_by_first_movie_director = ???
+    @number_of_movies_directed_by_first_movie_director = Director.find(:first).count
   end
 
   def question_4
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
     # Your Ruby goes here.
     # You'll probably have to use both ActiveRecord query methods as well as some plain old Ruby logic.
 
-    # @most_number_of_movies_by_a_single_director = ???
+    @most_number_of_movies_by_a_single_director = Director.count('id', :distinct => true)
   end
 
   def question_5
@@ -38,6 +38,7 @@ class QuestionsController < ApplicationController
     # Your Ruby goes here.
     # You'll probably have to use both ActiveRecord query methods as well as some plain old Ruby logic.
 
-    # @most_recent_movie_for_first_actor = ???
+    @first_actor = Actor.first
+    @most_recent_movie_for_first_actor = @first_actor.order("year DESC").first.year
   end
 end
